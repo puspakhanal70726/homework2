@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class AdminController < ApplicationController
-  before_action :administrative, except: [:get_user]
+  before_action :administrative
   skip_before_action :has_info
   layout false, only: [:get_all_users, :get_user]
 

@@ -8538,3 +8538,120 @@ Processing by DashboardController#change_graph as HTML
 Completed 200 OK in 17ms (Views: 12.3ms | ActiveRecord: 2.3ms)
 
 
+Started GET "/" for ::1 at 2018-03-27 11:52:16 -0400
+Processing by SessionsController#new as HTML
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "analytics" ("ip_address", "user_agent", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["ip_address", "::1"], ["user_agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36"], ["created_at", "2018-03-27 15:52:16.972107"], ["updated_at", "2018-03-27 15:52:16.972107"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT ?[0m  [["auth_token", ""], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Redirected to http://localhost:3000/dashboard/home
+Completed 302 Found in 265ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/dashboard/home" for ::1 at 2018-03-27 11:52:17 -0400
+Processing by DashboardController#home as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT ?[0m  [["auth_token", ""], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "analytics" ("ip_address", "user_agent", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["ip_address", "::1"], ["user_agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36"], ["created_at", "2018-03-27 15:52:17.397396"], ["updated_at", "2018-03-27 15:52:17.397396"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  Rendering dashboard/home.html.erb within layouts/application
+  Rendered dashboard/home.html.erb within layouts/application (2.8ms)
+  Rendered layouts/shared/_header.html.erb (6.5ms)
+  Rendered layouts/shared/_sidebar.html.erb (2.5ms)
+  Rendered layouts/shared/_messages.html.erb (0.7ms)
+  Rendered layouts/shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 442ms (Views: 435.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/dashboard/change_graph?graph=pie_charts" for ::1 at 2018-03-27 11:52:18 -0400
+Processing by DashboardController#change_graph as HTML
+  Parameters: {"graph"=>"pie_charts"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT ?[0m  [["auth_token", ""], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "analytics" ("ip_address", "referrer", "user_agent", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["ip_address", "::1"], ["referrer", "http://localhost:3000/dashboard/home"], ["user_agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36"], ["created_at", "2018-03-27 15:52:18.137535"], ["updated_at", "2018-03-27 15:52:18.137535"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  Rendering dashboard/pie_charts.html.erb
+  [1m[36mPaidTimeOff Load (0.2ms)[0m  [1m[34mSELECT  "paid_time_offs".* FROM "paid_time_offs" WHERE "paid_time_offs"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mWorkInfo Load (0.2ms)[0m  [1m[34mSELECT  "work_infos".* FROM "work_infos" WHERE "work_infos"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mPerformance Load (0.1ms)[0m  [1m[34mSELECT  "performances".* FROM "performances" WHERE "performances"."user_id" = ? ORDER BY "performances"."id" DESC LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mRetirement Load (0.2ms)[0m  [1m[34mSELECT  "retirements".* FROM "retirements" WHERE "retirements"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendered dashboard/pie_charts.html.erb (132.9ms)
+Completed 200 OK in 149ms (Views: 139.8ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/users/8/benefit_forms" for ::1 at 2018-03-27 11:52:28 -0400
+Processing by BenefitFormsController#index as HTML
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT ?[0m  [["auth_token", ""], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRetirement Load (0.1ms)[0m  [1m[34mSELECT  "retirements".* FROM "retirements" WHERE "retirements"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "analytics" ("ip_address", "referrer", "user_agent", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["ip_address", "::1"], ["referrer", "http://localhost:3000/dashboard/home"], ["user_agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36"], ["created_at", "2018-03-27 15:52:28.115365"], ["updated_at", "2018-03-27 15:52:28.115365"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  Rendering benefit_forms/index.html.erb within layouts/application
+  Rendered benefit_forms/index.html.erb within layouts/application (18.7ms)
+  Rendered layouts/shared/_header.html.erb (2.2ms)
+  Rendered layouts/shared/_sidebar.html.erb (2.0ms)
+  Rendered layouts/shared/_messages.html.erb (0.4ms)
+  Rendered layouts/shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 86ms (Views: 74.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/8/benefit_forms" for ::1 at 2018-03-27 11:55:20 -0400
+Processing by BenefitFormsController#index as HTML
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT ?[0m  [["auth_token", ""], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRetirement Load (0.1ms)[0m  [1m[34mSELECT  "retirements".* FROM "retirements" WHERE "retirements"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "analytics" ("ip_address", "user_agent", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["ip_address", "::1"], ["user_agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36"], ["created_at", "2018-03-27 15:55:20.637068"], ["updated_at", "2018-03-27 15:55:20.637068"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  Rendering benefit_forms/index.html.erb within layouts/application
+  Rendered benefit_forms/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/shared/_header.html.erb (3.1ms)
+  Rendered layouts/shared/_sidebar.html.erb (1.6ms)
+  Rendered layouts/shared/_messages.html.erb (0.4ms)
+  Rendered layouts/shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 107ms (Views: 60.6ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/users/8/retirement" for ::1 at 2018-03-27 11:55:30 -0400
+Processing by RetirementController#index as HTML
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT ?[0m  [["auth_token", ""], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRetirement Load (0.1ms)[0m  [1m[34mSELECT  "retirements".* FROM "retirements" WHERE "retirements"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "analytics" ("ip_address", "referrer", "user_agent", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["ip_address", "::1"], ["referrer", "http://localhost:3000/users/8/benefit_forms"], ["user_agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36"], ["created_at", "2018-03-27 15:55:30.069790"], ["updated_at", "2018-03-27 15:55:30.069790"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  Rendering retirement/index.html.erb within layouts/application
+  Rendered retirement/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/shared/_header.html.erb (1.6ms)
+  Rendered layouts/shared/_sidebar.html.erb (1.6ms)
+  Rendered layouts/shared/_messages.html.erb (0.8ms)
+  Rendered layouts/shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 69ms (Views: 61.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/8/paid_time_off" for ::1 at 2018-03-27 11:55:38 -0400
+Processing by PaidTimeOffController#index as HTML
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = ? LIMIT ?[0m  [["auth_token", ""], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRetirement Load (0.1ms)[0m  [1m[34mSELECT  "retirements".* FROM "retirements" WHERE "retirements"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "analytics" ("ip_address", "referrer", "user_agent", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["ip_address", "::1"], ["referrer", "http://localhost:3000/users/8/retirement"], ["user_agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36"], ["created_at", "2018-03-27 15:55:38.892373"], ["updated_at", "2018-03-27 15:55:38.892373"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPaidTimeOff Load (0.1ms)[0m  [1m[34mSELECT  "paid_time_offs".* FROM "paid_time_offs" WHERE "paid_time_offs"."user_id" = ? LIMIT ?[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendering paid_time_off/index.html.erb within layouts/application
+  Rendered paid_time_off/index.html.erb within layouts/application (11.3ms)
+  Rendered layouts/shared/_header.html.erb (2.1ms)
+  Rendered layouts/shared/_sidebar.html.erb (1.4ms)
+  Rendered layouts/shared/_messages.html.erb (0.5ms)
+  Rendered layouts/shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 95ms (Views: 67.6ms | ActiveRecord: 3.1ms)
+
+
