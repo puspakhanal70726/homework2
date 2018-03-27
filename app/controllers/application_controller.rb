@@ -50,11 +50,10 @@ class ApplicationController < ActionController::Base
     end
     redirect_to home_dashboard_index_path if redirect
   end
-
+end
   def create_analytic
     Analytics.create({ ip_address: request.remote_ip, referrer: request.referrer, user_agent: request.user_agent})
   end
   def sanitize_font(css)
     css
   end
-end
