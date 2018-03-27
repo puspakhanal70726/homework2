@@ -53,7 +53,7 @@ class ApplicationController < ActionController::Base
 
   def create_analytic
     Analytics.create({ ip_address: request.remote_ip, referrer: request.referrer, user_agent: request.user_agent})
-  end 
+  end
   def sanitize_font(css)
     css
   end
